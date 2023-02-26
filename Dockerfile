@@ -13,4 +13,4 @@ RUN bundle install
 COPY . /myapp
 
 EXPOSE 3000
-ENTRYPOINT ["./start.sh"]
+CMD ["./start.sh"]

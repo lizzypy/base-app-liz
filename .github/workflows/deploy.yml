@@ -1,0 +1,15 @@
+name: Deploy
+on:
+  push:
+    branches: main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: akhileshns/heroku-deploy@v3.12.13 # This is the action
+        with:
+          heroku_api_key: "38b58b68-a4d4-4422-b195-e5884fe05638"
+          heroku_app_name: "agile-chamber-34431" #Must be unique in Heroku
+          heroku_email: "lizjohnson@thisisartium.com"
+          usedocker: true
