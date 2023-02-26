@@ -1,7 +1,5 @@
 ---
-on:
-  push:
-    branches: [ master ]
+on: [push, pull_request, workflow_dispatch]
 
 name: Run CI Process for the app
 
