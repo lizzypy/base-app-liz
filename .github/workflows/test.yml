@@ -1,0 +1,36 @@
+---
+name: Test
+on: [push, pull-request]
+jobs:
+  rspec:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+      - uses: actions/checkout@v3
+      - name: Setup and Run Tests
+        run: |
+            docker-compose build
+            docker-compose run web rake db:setup
+            docker-compose run web rspec
+        env:
+          RAILS_ENV: test
+          POSTGRES_HOST: 127.0.0.1
+          POSTGRES_PORT: ${{ job.services.postgres.ports[5432] }}
+          DATABASE_PASSWORD: postgres
+
+# Action v2
+#      - uses: ruby/setup-ruby@v1
+#        with: { bundler-cache: true }
+#      - run: rspec
+#
+#    services:
+#      postgres:
+#        image: postgres:14.5
+#        ports: [ 5432 ]
+#        env:
+#          POSTGRES_USER: postgres
+#          POSTGRES_PASSWORD: postgres
+#        options: >-
+#          --health-cmd pg_isready
+#          --health-timeout 1s
+#          --health-retries 10
