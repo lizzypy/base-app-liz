@@ -3,14 +3,14 @@ name: Deploy
 on:
   push:
     branches: [main]
-  workflow_run:
-    workflows: [test]
-    types: [completed]
 
 jobs:
-  on-success:
+  tests:
+    uses: ./.github/workflows/tests.yml  # use the callable tests job to run tests
+  deploy:
+    name: deploy
+    needs: [ tests ]
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - run: echo 'The triggering workflow succeeded deploying now'
       - uses: actions/checkout@v2
@@ -20,8 +20,3 @@ jobs:
           heroku_app_name: "agile-chamber-34431" #Must be unique in Heroku
           heroku_email: "lizjohnson@thisisartium.com"
           usedocker: true
-  on-failure:
-    runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
-    steps:
-      - run: echo 'The triggering workflow failed - will not deploy'
