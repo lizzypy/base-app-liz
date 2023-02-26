@@ -1,21 +1,48 @@
 ---
-name: Test
-on: [push, pull_request]
+on:
+  push:
+    branches: [ master ]
+
+name: Run CI Process for the app
+
 jobs:
-  rspec:
+  test:
+    name: Run Tests and Build
     runs-on: ubuntu-latest
+    environment: test
+
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v2
+
       - name: Setup and Run Tests
-      - run: |
-            docker-compose build
-            docker-compose run web rake db:setup
-            docker-compose run web rspec
+        run:  |
+          docker-compose build
+          docker-compose run web rake db:setup
+          docker-compose run web rspec
         env:
           RAILS_ENV: test
           POSTGRES_HOST: 127.0.0.1
           POSTGRES_PORT: ${{ job.services.postgres.ports[5432] }}
           DATABASE_PASSWORD: postgres
+
+#name: Test
+#on: [push, pull_request]
+#jobs:
+#  rspec:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v3
+#      - name: Setup and Run Tests
+#      - run: |
+#            docker-compose build
+#            docker-compose run web rake db:setup
+#            docker-compose run web rspec
+#        env:
+#          RAILS_ENV: test
+#          POSTGRES_HOST: 127.0.0.1
+#          POSTGRES_PORT: ${{ job.services.postgres.ports[5432] }}
+#          DATABASE_PASSWORD: postgres
 
 # Action v2
 #      - uses: ruby/setup-ruby@v1
