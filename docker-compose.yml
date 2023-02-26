@@ -1,6 +1,4 @@
 version: '3.7'
-volumes:
-  pgdata:
 services:
   web:
     build:
@@ -17,7 +15,7 @@ services:
   postgres:
     image: postgres:14
     volumes:
-      - pgdata:/var/lib/postgresql/data
+      - ./tmp/db:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
     ports:
