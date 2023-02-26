@@ -6,7 +6,7 @@ on:
 
 jobs:
   tests:
-    uses: ./.github/workflows/tests.yml  # use the callable tests job to run tests
+    uses: .github/workflows/tests.yml  # use the callable tests job to run tests
   deploy:
     name: deploy
     needs: [ tests ]
