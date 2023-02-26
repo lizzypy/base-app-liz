@@ -5,10 +5,9 @@ jobs:
   rspec:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
       - uses: actions/checkout@v3
       - name: Setup and Run Tests
-        run: |
+      - run: |
             docker-compose build
             docker-compose run web rake db:setup
             docker-compose run web rspec
