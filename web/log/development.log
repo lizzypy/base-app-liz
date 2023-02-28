@@ -1,0 +1,307 @@
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE DATABASE "myapp_development" ENCODING = 'unicode'[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE DATABASE "myapp_test" ENCODING = 'unicode'[0m
+Started GET "/" for ::1 at 2023-02-25 16:08:54 -0800
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 0.8ms | Allocations: 459)
+  Rendered layout layouts/application.html.erb (Duration: 326.5ms | Allocations: 90697)
+Completed 200 OK in 332ms (Views: 328.9ms | ActiveRecord: 0.0ms | Allocations: 94228)
+
+
+  [1m[35m (1098.0ms)[0m  [1m[35mCREATE DATABASE "web_development" ENCODING = 'unicode'[0m
+  [1m[35m (911.5ms)[0m  [1m[35mCREATE DATABASE "web_test" ENCODING = 'unicode'[0m
+  [1m[35m (50.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (12.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6955016089055575695)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateParticipants (20230226022106)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (19.9ms)[0m  [1m[35mCREATE TABLE "participants" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "birthdate" date, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230226022106"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (2.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-02-26 02:46:42.645694"], ["updated_at", "2023-02-26 02:46:42.645694"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(6955016089055575695)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mParticipant Create (3.4ms)[0m  [1m[32mINSERT INTO "participants" ("first_name", "last_name", "birthdate", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["first_name", "clayton"], ["last_name", "johnson"], ["birthdate", "2016-04-16"], ["created_at", "2023-02-26 02:46:42.845442"], ["updated_at", "2023-02-26 02:46:42.845442"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE DATABASE "web_development" ENCODING = 'unicode'[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE DATABASE "web_test" ENCODING = 'unicode'[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6955016089055575695)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (3.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(6955016089055575695)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mParticipant Create (5.4ms)[0m  [1m[32mINSERT INTO "participants" ("first_name", "last_name", "birthdate", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["first_name", "clayton"], ["last_name", "johnson"], ["birthdate", "2016-04-16"], ["created_at", "2023-02-26 02:47:30.879208"], ["updated_at", "2023-02-26 02:47:30.879208"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for 192.168.224.1 at 2023-02-26 02:47:52 +0000
+Cannot render console from 192.168.224.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb
+  Rendered welcome/index.html.erb (Duration: 5.3ms | Allocations: 457)
+Completed 200 OK in 37ms (Views: 21.5ms | ActiveRecord: 0.0ms | Allocations: 4098)
+
+
+Started GET "/participants" for 192.168.224.1 at 2023-02-26 02:48:01 +0000
+Cannot render console from 192.168.224.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  
+ActionController::RoutingError (No route matches [GET] "/participants"):
+  
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE DATABASE "web_development" ENCODING = 'unicode'[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE DATABASE "web_test" ENCODING = 'unicode'[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6955016089055575695)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(6955016089055575695)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mParticipant Create (5.6ms)[0m  [1m[32mINSERT INTO "participants" ("first_name", "last_name", "birthdate", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["first_name", "clayton"], ["last_name", "johnson"], ["birthdate", "2016-04-16"], ["created_at", "2023-02-26 02:49:39.788289"], ["updated_at", "2023-02-26 02:49:39.788289"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/participants" for 192.168.224.1 at 2023-02-26 02:50:00 +0000
+Cannot render console from 192.168.224.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ParticipantsController#index as HTML
+  [1m[36mParticipant Load (1.2ms)[0m  [1m[34mSELECT "participants".* FROM "participants"[0m
+  ↳ app/controllers/participants_controller.rb:4:in `index'
+Completed 200 OK in 17ms (Views: 0.2ms | ActiveRecord: 4.3ms | Allocations: 7472)
+
+
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE DATABASE "web_development" ENCODING = 'unicode'[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE DATABASE "web_test" ENCODING = 'unicode'[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6955016089055575695)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(6955016089055575695)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mParticipant Load (2.5ms)[0m  [1m[34mSELECT "participants".* FROM "participants" WHERE "participants"."first_name" = $1 AND "participants"."last_name" = $2 AND "participants"."birthdate" = $3 LIMIT $4[0m  [["first_name", "clayton"], ["last_name", "johnson"], ["birthdate", "2016-04-16"], ["LIMIT", 1]]
+Started GET "/participants" for 192.168.224.1 at 2023-02-26 02:51:29 +0000
+Cannot render console from 192.168.224.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ParticipantsController#index as HTML
+  [1m[36mParticipant Load (1.0ms)[0m  [1m[34mSELECT "participants".* FROM "participants"[0m
+  ↳ app/controllers/participants_controller.rb:4:in `index'
+Completed 200 OK in 16ms (Views: 0.1ms | ActiveRecord: 3.7ms | Allocations: 7472)
+
+
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE DATABASE "web_development" ENCODING = 'unicode'[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE DATABASE "web_test" ENCODING = 'unicode'[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6955016089055575695)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(6955016089055575695)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mParticipant Load (2.3ms)[0m  [1m[34mSELECT "participants".* FROM "participants" WHERE "participants"."first_name" = $1 AND "participants"."last_name" = $2 AND "participants"."birthdate" = $3 LIMIT $4[0m  [["first_name", "clayton"], ["last_name", "johnson"], ["birthdate", "2016-04-16"], ["LIMIT", 1]]
+Started POST "/participants" for 192.168.224.1 at 2023-02-26 11:52:54 +0000
+Cannot render console from 192.168.224.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ParticipantsController#create as */*
+  Parameters: {"participant"=>{"first_name"=>"liz", "last_name"=>"johnson", "birthdate"=>"1992-05-17"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/participants_controller.rb:8:in `create'
+  [1m[36mParticipant Create (4.2ms)[0m  [1m[32mINSERT INTO "participants" ("first_name", "last_name", "birthdate", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["first_name", "liz"], ["last_name", "johnson"], ["birthdate", "1992-05-17"], ["created_at", "2023-02-26 11:52:54.585127"], ["updated_at", "2023-02-26 11:52:54.585127"]]
+  ↳ app/controllers/participants_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/participants_controller.rb:8:in `create'
+Completed 200 OK in 19ms (Views: 0.2ms | ActiveRecord: 9.3ms | Allocations: 8107)
+
+
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE DATABASE "web_development" ENCODING = 'unicode'[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE DATABASE "web_test" ENCODING = 'unicode'[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6955016089055575695)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(6955016089055575695)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mParticipant Load (2.8ms)[0m  [1m[34mSELECT "participants".* FROM "participants" WHERE "participants"."first_name" = $1 AND "participants"."last_name" = $2 AND "participants"."birthdate" = $3 LIMIT $4[0m  [["first_name", "clayton"], ["last_name", "johnson"], ["birthdate", "2016-04-16"], ["LIMIT", 1]]
+Started GET "/" for 172.19.0.1 at 2023-02-28 00:46:22 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering static/index.html
+  Rendered static/index.html (Duration: 0.8ms | Allocations: 13)
+Completed 200 OK in 19ms (Views: 19.0ms | ActiveRecord: 0.0ms | Allocations: 1798)
+
+
+Started GET "/static/js/main.68afa4bf.js" for 172.19.0.1 at 2023-02-28 00:46:22 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Started GET "/static/css/main.073c9b0a.css" for 172.19.0.1 at 2023-02-28 00:46:22 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by HomeController#index as JS
+  Parameters: {"path"=>"static/js/main.68afa4bf"}
+  Rendering static/index.html
+Processing by HomeController#index as CSS
+  Parameters: {"path"=>"static/css/main.073c9b0a"}
+  Rendered static/index.html (Duration: 0.6ms | Allocations: 22)
+  Rendering static/index.html
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.0ms | Allocations: 657)
+
+
+  Rendered static/index.html (Duration: 1.0ms | Allocations: 218)
+Completed 200 OK in 2ms (Views: 2.3ms | ActiveRecord: 0.0ms | Allocations: 414)
+
+
+Started GET "/manifest.json" for 172.19.0.1 at 2023-02-28 00:46:23 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by HomeController#index as JSON
+  Parameters: {"path"=>"manifest"}
+  Rendering static/index.html
+  Rendered static/index.html (Duration: 0.7ms | Allocations: 8)
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.0ms | Allocations: 149)
+
+
+Started GET "/manifest.json" for 172.19.0.1 at 2023-02-28 00:46:28 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Started GET "/static/css/main.073c9b0a.css" for 172.19.0.1 at 2023-02-28 00:46:28 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by HomeController#index as JSON
+  Parameters: {"path"=>"manifest"}
+  Rendering static/index.html
+Processing by HomeController#index as CSS
+  Parameters: {"path"=>"static/css/main.073c9b0a"}
+  Rendered static/index.html (Duration: 0.7ms | Allocations: 21)
+Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.0ms | Allocations: 522)
+
+
+  Rendering static/index.html
+  Rendered static/index.html (Duration: 0.8ms | Allocations: 7)
+Completed 200 OK in 3ms (Views: 3.2ms | ActiveRecord: 0.0ms | Allocations: 406)
+
+
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE DATABASE "web_development" ENCODING = 'unicode'[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE DATABASE "web_test" ENCODING = 'unicode'[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6955016089055575695)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(6955016089055575695)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mParticipant Load (2.7ms)[0m  [1m[34mSELECT "participants".* FROM "participants" WHERE "participants"."first_name" = $1 AND "participants"."last_name" = $2 AND "participants"."birthdate" = $3 LIMIT $4[0m  [["first_name", "clayton"], ["last_name", "johnson"], ["birthdate", "2016-04-16"], ["LIMIT", 1]]
+Started GET "/" for 172.19.0.1 at 2023-02-28 14:23:29 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering static/index.html
+  Rendered static/index.html (Duration: 1.1ms | Allocations: 13)
+Completed 200 OK in 10ms (Views: 10.1ms | ActiveRecord: 0.0ms | Allocations: 984)
+
+
+Started GET "/static/css/main.073c9b0a.css" for 172.19.0.1 at 2023-02-28 14:23:29 +0000
+Started GET "/static/js/main.68afa4bf.js" for 172.19.0.1 at 2023-02-28 14:23:29 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by HomeController#index as CSS
+  Parameters: {"path"=>"static/css/main.073c9b0a.css"}
+Processing by HomeController#index as JS
+  Rendering static/index.html
+  Parameters: {"path"=>"static/js/main.68afa4bf.js"}
+  Rendering static/index.html
+  Rendered static/index.html (Duration: 1.1ms | Allocations: 81)
+Completed 200 OK in 4ms (Views: 4.2ms | ActiveRecord: 0.0ms | Allocations: 656)
+
+
+  Rendered static/index.html (Duration: 1.3ms | Allocations: 64)
+Completed 200 OK in 4ms (Views: 3.6ms | ActiveRecord: 0.0ms | Allocations: 429)
+
+
+Started GET "/manifest.json" for 172.19.0.1 at 2023-02-28 14:23:29 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by HomeController#index as */*
+  Parameters: {"path"=>"manifest.json"}
+  Rendering static/index.html
+  Rendered static/index.html (Duration: 0.8ms | Allocations: 8)
+Completed 200 OK in 2ms (Views: 2.2ms | ActiveRecord: 0.0ms | Allocations: 159)
+
+
+Started GET "/manifest.json" for 172.19.0.1 at 2023-02-28 14:23:33 +0000
+Started GET "/static/css/main.073c9b0a.css" for 172.19.0.1 at 2023-02-28 14:23:33 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by HomeController#index as CSS
+  Parameters: {"path"=>"static/css/main.073c9b0a.css"}
+Processing by HomeController#index as */*
+  Rendering static/index.html
+  Parameters: {"path"=>"manifest.json"}
+  Rendering static/index.html
+  Rendered static/index.html (Duration: 1.0ms | Allocations: 109)
+Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.0ms | Allocations: 280)
+
+
+  Rendered static/index.html (Duration: 0.9ms | Allocations: 57)
+Completed 200 OK in 21ms (Views: 20.5ms | ActiveRecord: 0.0ms | Allocations: 440)
+
+
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE DATABASE "web_development" ENCODING = 'unicode'[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE DATABASE "web_test" ENCODING = 'unicode'[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6955016089055575695)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.9ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(6955016089055575695)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mParticipant Load (2.8ms)[0m  [1m[34mSELECT "participants".* FROM "participants" WHERE "participants"."first_name" = $1 AND "participants"."last_name" = $2 AND "participants"."birthdate" = $3 LIMIT $4[0m  [["first_name", "clayton"], ["last_name", "johnson"], ["birthdate", "2016-04-16"], ["LIMIT", 1]]
+Started GET "/" for 172.19.0.1 at 2023-02-28 14:36:22 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering static/index.html
+  Rendered static/index.html (Duration: 0.7ms | Allocations: 13)
+Completed 200 OK in 7ms (Views: 6.7ms | ActiveRecord: 0.0ms | Allocations: 984)
+
+
+Started GET "/static/js/main.68afa4bf.js" for 172.19.0.1 at 2023-02-28 14:36:22 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by HomeController#index as */*
+  Parameters: {"path"=>"static/js/main.68afa4bf.js"}
+  Rendering static/index.html
+  Rendered static/index.html (Duration: 1.8ms | Allocations: 7)
+Completed 200 OK in 4ms (Views: 4.3ms | ActiveRecord: 0.0ms | Allocations: 157)
+
+
+Started GET "/manifest.json" for 172.19.0.1 at 2023-02-28 14:36:22 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by HomeController#index as */*
+  Parameters: {"path"=>"manifest.json"}
+  Rendering static/index.html
+  Rendered static/index.html (Duration: 0.8ms | Allocations: 8)
+Completed 200 OK in 2ms (Views: 2.0ms | ActiveRecord: 0.0ms | Allocations: 158)
+
+
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE DATABASE "web_development" ENCODING = 'unicode'[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE DATABASE "web_test" ENCODING = 'unicode'[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6955016089055575695)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(6955016089055575695)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mParticipant Load (2.6ms)[0m  [1m[34mSELECT "participants".* FROM "participants" WHERE "participants"."first_name" = $1 AND "participants"."last_name" = $2 AND "participants"."birthdate" = $3 LIMIT $4[0m  [["first_name", "clayton"], ["last_name", "johnson"], ["birthdate", "2016-04-16"], ["LIMIT", 1]]
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE DATABASE "web_development" ENCODING = 'unicode'[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE DATABASE "web_test" ENCODING = 'unicode'[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6955016089055575695)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (3.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (3.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(6955016089055575695)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mParticipant Load (2.8ms)[0m  [1m[34mSELECT "participants".* FROM "participants" WHERE "participants"."first_name" = $1 AND "participants"."last_name" = $2 AND "participants"."birthdate" = $3 LIMIT $4[0m  [["first_name", "clayton"], ["last_name", "johnson"], ["birthdate", "2016-04-16"], ["LIMIT", 1]]
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE DATABASE "web_development" ENCODING = 'unicode'[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE DATABASE "web_test" ENCODING = 'unicode'[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6955016089055575695)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.9ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(6955016089055575695)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mParticipant Load (2.6ms)[0m  [1m[34mSELECT "participants".* FROM "participants" WHERE "participants"."first_name" = $1 AND "participants"."last_name" = $2 AND "participants"."birthdate" = $3 LIMIT $4[0m  [["first_name", "clayton"], ["last_name", "johnson"], ["birthdate", "2016-04-16"], ["LIMIT", 1]]

@@ -2,9 +2,9 @@ version: '3.7'
 services:
   web:
     build:
-      context: .
+      context: ./web/
     volumes:
-      - .:/myapp
+      - ./web/:/myapp/web
     depends_on:
       - postgres
     environment:

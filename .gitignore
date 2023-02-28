@@ -9,12 +9,13 @@
 
 # Ignore all logfiles and tempfiles.
 /log/*
-/tmp/*
+web/tmp/*
+tmp/*
 !/log/.keep
 !/tmp/.keep
 
 # Ignore pidfiles, but keep the directory.
-/tmp/pids/*
+web/tmp/pids/*
 !/tmp/pids/
 !/tmp/pids/.keep
 
@@ -25,7 +26,8 @@
 !/tmp/storage/
 !/tmp/storage/.keep
 
-/public/assets
-
+web/public
+web/public/assets
+web/public/static
 # Ignore master key for decrypting credentials and more.
 /config/master.key
