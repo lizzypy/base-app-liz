@@ -12,6 +12,8 @@ services:
     ports:
       - "3000:3000"
 
+  # This is odd - but all I do is build the frontend with this step
+  # It won't hot reload
   frontend:
     image: node:14
     working_dir: /myapp/frontend

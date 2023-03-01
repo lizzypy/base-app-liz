@@ -6,6 +6,8 @@ RUN curl -fsSL https://deb.nodesource.com/setup_14.x | bash - && \
 RUN mkdir /myapp
 COPY . /myapp
 
+# Building the frontend assets from the frontend directory
+# the project.json specifies a build path so they will be built into the /public/static directory and rails can serve them
 WORKDIR /myapp/frontend
 RUN npm install && npm run build
 

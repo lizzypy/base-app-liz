@@ -1,7 +1,7 @@
 class ParticipantsController < ApplicationController
   def index
     @participants = Participant.all
-    render json: @participants.to_json
+    render json: {}
   end
 
   def create
