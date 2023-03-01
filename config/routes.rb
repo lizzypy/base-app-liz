@@ -2,7 +2,5 @@ Rails.application.routes.draw do
   get '/participants' => 'participants#index'
   post '/participants' => 'participants#create'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  root 'welcome#index'
-  # Defines the root path route ("/")
-  # root "articles#index"
+  root 'home#index'
 end
