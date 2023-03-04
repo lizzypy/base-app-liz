@@ -3,7 +3,7 @@ import { DataGrid } from '@mui/x-data-grid';
 import Box from '@mui/material/Box';
 import React, {useEffect, useState} from "react";
 import axios from "axios";
-import {Typography} from "@mui/material";
+import {AppBar, Toolbar, Typography} from "@mui/material";
 
 export const Welcome = () => {
     // const { participants, error }  = useParticipants();
@@ -49,25 +49,36 @@ export const Welcome = () => {
         }
     ]
     return (
-        <section aria-label={"projects-section"}
-                 style={{padding: "40px 30px", display: "flex", flexDirection: "column", justifyContent: "space-around"}}>
-            <Typography variant={"h3"}>Participants</Typography>
-            <Box sx={{height: 400, width: '100%'}}>
-                <DataGrid
-                    rows={apiData}
-                    columns={columns}
-                    initialState={{
-                        pagination: {
-                            paginationModel: {
-                                pageSize: 5,
+        <div>
+            <AppBar position="static">
+                <Toolbar>
+                    Participants
+                </Toolbar>
+            </AppBar>
+            <section aria-label={"projects-section"}
+                     style={{
+                         padding: "40px 30px",
+                         display: "flex",
+                         flexDirection: "column",
+                         justifyContent: "space-around"
+                     }}>
+                <Box sx={{height: 400, width: '100%'}}>
+                    <DataGrid
+                        rows={apiData}
+                        columns={columns}
+                        initialState={{
+                            pagination: {
+                                paginationModel: {
+                                    pageSize: 5,
+                                },
                             },
-                        },
-                    }}
-                    pageSizeOptions={[5]}
-                    checkboxSelection
-                    disableRowSelectionOnClick
-                />
-            </Box>
-        </section>
+                        }}
+                        pageSizeOptions={[5]}
+                        checkboxSelection
+                        disableRowSelectionOnClick
+                    />
+                </Box>
+            </section>
+        </div>
     );
 }
