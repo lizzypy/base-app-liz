@@ -25,6 +25,8 @@
 !/tmp/storage/
 !/tmp/storage/.keep
 
+/data
+
 /public/assets
 
 /public/*
