@@ -19,5 +19,5 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "agile-chamber-34431" #Must be unique in Heroku
           heroku_email: "lizjohnson@thisisartium.com"
-          docker_heroku_process_type: image
+          docker_heroku_process_type: web
           usedocker: true

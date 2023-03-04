@@ -1,7 +1,7 @@
 build:
   docker:
-    image: Dockerfile
+    web: Dockerfile
   config:
     RAILS_ENV: production
 run:
-  image: bundle exec rails server -b 0.0.0.0 -p $PORT
+  web: bundle exec rails server -b 0.0.0.0 -p $PORT
