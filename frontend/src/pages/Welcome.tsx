@@ -1,31 +1,11 @@
-import {useParticipants} from "../hooks/useParticipants";
 import { DataGrid } from '@mui/x-data-grid';
 import Box from '@mui/material/Box';
-import React, {useEffect, useState} from "react";
-import axios from "axios";
+import React from "react";
 import {AppBar, Toolbar, Typography} from "@mui/material";
+import useParticipants from "../hooks/useParticipants";
 
 export const Welcome = () => {
-    // const { participants, error }  = useParticipants();
-
-    const [apiData, setApiData] = useState([]);
-
-    useEffect(() => {
-        axios({
-            method: 'GET',
-            url: `/participants`,
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        })
-            .then(response => {
-                console.log("This is the response: ", response)
-                setApiData(response.data)
-            })
-            .catch(error => {
-                console.log(error)
-            })
-    }, []);
+    const apiData = useParticipants();
 
     const columns = [
         { field: 'id', headerName: 'ID', width: 90 },
