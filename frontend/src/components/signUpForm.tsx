@@ -65,7 +65,7 @@ function SignUpForm() {
 
     return (
         <>
-            <Button onClick={handleOpen}>Open modal</Button>
+            <Button onClick={handleOpen}>Sign Up</Button>
 
             <Modal
                 open={open}
