@@ -1,8 +1,9 @@
 import { DataGrid } from '@mui/x-data-grid';
 import Box from '@mui/material/Box';
-import React from "react";
-import {AppBar, Toolbar, Typography} from "@mui/material";
+import React, {useState} from "react";
+import {AppBar, Toolbar } from "@mui/material";
 import useParticipants from "../hooks/useParticipants";
+import SignUpForm from "../components/signUpForm";
 
 export const Welcome = () => {
     const apiData = useParticipants();
@@ -28,12 +29,14 @@ export const Welcome = () => {
             editable: true,
         }
     ]
+
     return (
         <div>
             <AppBar position="static">
                 <Toolbar>
                     Participants
                 </Toolbar>
+                <SignUpForm/>
             </AppBar>
             <section aria-label={"projects-section"}
                      style={{
