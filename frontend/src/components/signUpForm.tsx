@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {Button, Container, Typography} from '@material-ui/core'
 import axios from 'axios';
-import {Box, Modal} from "@mui/material";
+import {Box, Input, Modal} from "@mui/material";
 
 const style = {
     position: 'absolute' as 'absolute',
@@ -73,19 +73,19 @@ function SignUpForm() {
                 aria-labelledby="child-modal-title"
                 aria-describedby="child-modal-description"
             >
-                <Box sx={{...style, width: 200}}>
+                <Box sx={{...style, width: 400}}>
                     <h1>Sign Up</h1>
                     <Container
                         style={{display: "flex", justifyContent: "center", flexDirection: "column", width: "150px"}}>
-                        <input
-                            style={{width: "100%", alignItems: "center"}}
+                        <Input
+                            sx={{alignItems: "center"}}
                             type="text"
                             onChange={handleEmailChange}
                             className="email-input"
                             placeholder="Email"/>
 
-                        <input
-                            style={{width: "100%", alignItems: "center", margin: "10px 0px"}}
+                        <Input
+                            sx={{alignItems: "center", margin: "10px 0px"}}
                             type="password"
                             onChange={handlePasswordChange}
                             className="password-input"

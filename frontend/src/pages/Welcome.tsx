@@ -4,6 +4,7 @@ import React, {useState} from "react";
 import {AppBar, Toolbar } from "@mui/material";
 import useParticipants from "../hooks/useParticipants";
 import SignUpForm from "../components/signUpForm";
+import {Typography} from "@material-ui/core";
 
 export const Welcome = () => {
     const apiData = useParticipants();
@@ -32,20 +33,23 @@ export const Welcome = () => {
 
     return (
         <div>
-            <AppBar position="static">
-                <Toolbar>
-                    Participants
-                </Toolbar>
-                <SignUpForm/>
+            <AppBar position="static" sx={{ bgcolor: "pink" }}>
+                <section aria-label={"toolbar-section"}
+                         style={{display: "flex", flexDirection: "row", justifyContent: "right"}}>
+                    <Toolbar>
+                        <SignUpForm/>
+                    </Toolbar>
+                </section>
             </AppBar>
-            <section aria-label={"projects-section"}
+            <section aria-label={"participants-section"}
                      style={{
                          padding: "40px 30px",
                          display: "flex",
                          flexDirection: "column",
                          justifyContent: "space-around"
                      }}>
-                <Box sx={{height: 400, width: '100%'}}>
+                <Box sx={{textAlign:'left', height: 400, width: '100%'}}>
+                    <Typography variant={'h6'}> Participants </Typography>
                     <DataGrid
                         rows={apiData}
                         columns={columns}
