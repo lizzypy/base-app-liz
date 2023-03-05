@@ -1,19 +1,17 @@
 import axios from "axios";
 import {useEffect, useState} from "react";
 
-export const useParticipants = () => {
-    const [apiData, setApiData] = useState(null);
-    const [serverError, setServerError] = useState(null);
+interface Participant {
+    id: number;
+    first_name: string;
+    last_name: string;
+    birthdate?: string;
+}
+
+function useParticipants(): Participant[] {
+    const [apiData, setApiData] = useState([]);
 
     useEffect(() => {
-        // axios.get('/participants').then((response) => {
-        //         const data = response?.data;
-        //         setApiData(data);
-        //     }
-        // ).catch((error) => {
-        //         setServerError(error);
-        //     }
-        // )
             axios({
                 method: 'GET',
                 url: `/participants`,
@@ -30,5 +28,6 @@ export const useParticipants = () => {
                 })
     }, []);
 
-    return { apiData, serverError }
+    return apiData ?? []
 }
+export default useParticipants;

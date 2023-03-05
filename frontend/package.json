@@ -1,27 +1,52 @@
 {
   "name": "frontend",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "@emotion/react": "^11.10.6",
-    "@emotion/styled": "^11.10.6",
-    "@mui/material": "^5.11.11",
+    "@emotion/react": "^11.10.0",
+    "@emotion/styled": "^11.10.0",
+    "@material-ui/core": "^4.12.4",
+    "@mui/icons-material": "^5.8.4",
+    "@mui/material": "^5.9.2",
+    "@mui/styles": "^5.9.3",
     "@mui/x-data-grid": "^6.0.0",
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
-    "axios": "^1.3.4",
+    "@types/jest": "^27.0.1",
+    "@types/js-cookie": "^3.0.2",
+    "@types/node": "^16.7.13",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.23.0",
+    "@typescript-eslint/parser": "^5.23.0",
+    "axios": "^0.27.2",
+    "check-prop-types": "^1.1.2",
     "react": "^18.2.0",
+    "react-data-table-component": "^7.5.2",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.8.2",
     "react-scripts": "5.0.1",
+    "source-map-loader": "^4.0.1",
+    "styled-components": "^5.3.5",
+    "ts-loader": "^9.4.2",
+    "typescript": "^4.4.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "BUILD_PATH='../public' react-scripts build",
     "test": "react-scripts test",
+    "test:coverage": "set CI=true && react-scripts test --coverage",
     "eject": "react-scripts eject"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "**/*.{js,jsx}",
+      "!**/node_modules/**",
+      "!**/coverage/**",
+      "!**/index.js"
+    ]
   },
   "eslintConfig": {
     "extends": [
@@ -40,5 +65,18 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "author": "pradeep.vwa@gmail.com",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/learning-zone/react-unit-test.git"
+  },
+  "devDependencies": {
+    "jest-canvas-mock": "^2.4.0",
+    "jest-enzyme": "^7.1.2",
+    "jest-watch-typeahead": "^0.6.5",
+    "prop-types": "^15.8.1",
+    "react-test-renderer": "^18.2.0"
   }
 }
