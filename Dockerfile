@@ -13,8 +13,9 @@ RUN npm install && npm run build
 
 WORKDIR /myapp
 
-COPY Gemfile /myapp/Gemfile
-COPY Gemfile.lock /myapp/Gemfile.lock
+# do you need these steps if you have line 7?
+COPY web/Gemfile /myapp/Gemfile
+COPY web/Gemfile.lock /myapp/Gemfile.lock
 
 RUN bundle install
 

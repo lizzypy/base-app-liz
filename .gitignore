@@ -25,10 +25,14 @@
 !/tmp/storage/
 !/tmp/storage/.keep
 
+/web/data
 /data
 
-/public/assets
+/web/tmp
+/web/log
 
-/public/*
+/web/public/assets
+
+/web/public/*
 # Ignore master key for decrypting credentials and more.
-/config/master.key
+web/config/master.key

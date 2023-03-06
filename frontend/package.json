@@ -35,7 +35,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "BUILD_PATH='../public' react-scripts build",
+    "build": "BUILD_PATH='../web/public' react-scripts build",
     "test": "react-scripts test",
     "test:coverage": "set CI=true && react-scripts test --coverage",
     "eject": "react-scripts eject"
