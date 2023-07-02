@@ -1,24 +1,14 @@
-# README
+# Liz's Base App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Running Backend Tests
 
-Things you may want to cover:
+`docker compose build`
 
-* Ruby version
+`docker compose run web rake db:setup`
 
-* System dependencies
+`docker compose run web rspec`
 
-* Configuration
 
-* Database creation
+## Running the app
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+`docker compose up`
