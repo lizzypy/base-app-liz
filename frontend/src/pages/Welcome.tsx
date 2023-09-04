@@ -1,34 +1,28 @@
 import { DataGrid } from '@mui/x-data-grid';
 import Box from '@mui/material/Box';
-import React, {useState} from "react";
 import {AppBar, Toolbar } from "@mui/material";
-import useParticipants from "../hooks/useParticipants";
+import useUsers from "../hooks/useUsers";
+import type {NextPage} from 'next';
 import SignUpForm from "../components/signUpForm";
 import {Typography} from "@material-ui/core";
 
-export const Welcome = () => {
-    const apiData = useParticipants();
+export const Welcome: NextPage = () => {
+    const apiData = useUsers();
 
     const columns = [
         { field: 'id', headerName: 'ID', width: 90 },
         {
-            field: 'first_name',
-            headerName: 'First name',
-            width: 150,
+            field: 'email',
+            headerName: 'Email',
+            width: 300,
             editable: true,
         },
         {
-            field: 'last_name',
-            headerName: 'Last name',
-            width: 150,
+            field: 'updated_at',
+            headerName: 'Last Updated',
+            width: 300,
             editable: true,
         },
-        {
-            field: 'birthdate',
-            headerName: 'Birth Date',
-            width: 110,
-            editable: true,
-        }
     ]
 
     return (
@@ -50,6 +44,7 @@ export const Welcome = () => {
                      }}>
                 <Box sx={{textAlign:'left', height: 400, width: '100%'}}>
                     <Typography variant={'h6'}> Participants </Typography>
+                   <div style={{ height: 250, width: '100%' }}>
                     <DataGrid
                         rows={apiData}
                         columns={columns}
@@ -64,6 +59,7 @@ export const Welcome = () => {
                         checkboxSelection
                         disableRowSelectionOnClick
                     />
+                   </div>
                 </Box>
             </section>
         </div>

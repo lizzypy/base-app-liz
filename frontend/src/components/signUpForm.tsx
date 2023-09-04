@@ -19,6 +19,7 @@ const style = {
 
 function SignUpForm() {
     const [open, setOpen] = useState<boolean>(false)
+    const [signInOpen, setSignInOpen] = useState<boolean>(false)
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [signUpSuccessful, setSignUpSuccessful] = useState(false);
@@ -30,6 +31,9 @@ function SignUpForm() {
 
     const handleOpen = () => {
         setOpen(true);
+    }
+    const handleSignInOpen = () => {
+        setSignInOpen(true);
     }
     const handleEmailChange = (e: any) => {
         setEmail(e.target.value);
@@ -52,6 +56,7 @@ function SignUpForm() {
         axios({
             url: '/users',
             method: 'POST',
+            baseURL: 'http://new-url.com',
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -66,6 +71,7 @@ function SignUpForm() {
     return (
         <>
             <Button onClick={handleOpen}>Sign Up</Button>
+            <Button onClick={handleSignInOpen}>Sign In</Button>
 
             <Modal
                 open={open}

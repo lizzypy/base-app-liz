@@ -16,7 +16,7 @@ services:
   # This is odd - but all I do is build the frontend with this step
   # It won't hot reload
   frontend:
-    image: node:14
+    image: node:16
     working_dir: /myapp/frontend
     command: script/build
     volumes:
