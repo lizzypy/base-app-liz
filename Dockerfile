@@ -19,7 +19,7 @@ COPY . /myapp
 # Building the frontend assets from the frontend directory
 # the project.json specifies a build path so they will be built into the /public/static directory and rails can serve them
 WORKDIR /myapp/frontend
-RUN npm install && npm run build
+RUN npm install --legacy-peer-deps && npm run build
 #
 WORKDIR /myapp
 
