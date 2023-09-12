@@ -22,11 +22,11 @@
     "@typescript-eslint/parser": "^5.23.0",
     "axios": "^0.27.2",
     "check-prop-types": "^1.1.2",
+    "next": "^13.4.19",
     "react": "^18.2.0",
     "react-data-table-component": "^7.5.2",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.8.2",
-    "react-scripts": "5.0.1",
     "source-map-loader": "^4.0.1",
     "styled-components": "^5.3.5",
     "ts-loader": "^9.4.2",
@@ -34,11 +34,10 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "BUILD_PATH='../public' react-scripts build",
-    "test": "react-scripts test",
-    "test:coverage": "set CI=true && react-scripts test --coverage",
-    "eject": "react-scripts eject"
+    "dev": "next dev",
+    "proxy": "node proxy",
+    "build": "next build",
+    "start": "next start"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -66,17 +65,12 @@
       "last 1 safari version"
     ]
   },
-  "author": "pradeep.vwa@gmail.com",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/learning-zone/react-unit-test.git"
-  },
   "devDependencies": {
     "jest-canvas-mock": "^2.4.0",
     "jest-enzyme": "^7.1.2",
     "jest-watch-typeahead": "^0.6.5",
     "prop-types": "^15.8.1",
-    "react-test-renderer": "^18.2.0"
+    "react-test-renderer": "^18.2.0",
+    "webpack-cli": "^5.1.4"
   }
 }
