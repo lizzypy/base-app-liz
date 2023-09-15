@@ -1,4 +1,4 @@
-import axios from "axios";
+import {useHttpClient} from "./useHttpClient";
 import {useEffect, useState} from "react";
 
 interface Participant {
@@ -8,26 +8,24 @@ interface Participant {
     birthdate?: string;
 }
 
-function useParticipants(): Participant[] {
+function useParticipants(): { participants: Participant[], isLoading: boolean } {
     const [apiData, setApiData] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
+    const httpClient = useHttpClient();
 
     useEffect(() => {
-            axios({
-                method: 'GET',
-                url: `/participants`,
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-            })
-                .then(response => {
-                    console.log("This is the response: ", response)
-                    setApiData(response.data)
-                })
-                .catch(error => {
-                    console.log(error)
-                })
+      setIsLoading(true)
+      httpClient.get('/participants').then(response => {
+        setApiData(response.data)
+        setIsLoading(false)
+        return { participants: apiData, isLoading: isLoading }
+      })
+      .catch(error => {
+        console.log(error)
+      })
     }, []);
 
-    return apiData ?? []
+    return { participants: apiData, isLoading: isLoading }
 }
+
 export default useParticipants;

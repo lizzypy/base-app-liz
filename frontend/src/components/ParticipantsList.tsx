@@ -1,26 +1,29 @@
 import { DataGrid } from '@mui/x-data-grid';
 import Box from '@mui/material/Box';
 import {AppBar, Toolbar } from "@mui/material";
-import useUsers from "../hooks/useUsers";
+import useParticipants from "../hooks/useParticipants";
 import type {NextPage} from 'next';
 import SignUpForm from "../components/signUpForm";
-import ParticipantsList from "../components/ParticipantsList";
 import {Typography} from "@material-ui/core";
 
-export const Welcome: NextPage = () => {
-    const { users, isLoading } = useUsers();
+const ParticipantsList = () => {
+    const { participants, isLoading } = useParticipants();
 
     const columns = [
-        { field: 'id', headerName: 'ID', width: 90 },
         {
-            field: 'email',
-            headerName: 'Email',
+            field: 'id',
+            headerName: 'ID',
+            width: 90
+        },
+        {
+            field: 'first_name',
+            headerName: 'First Name',
             width: 300,
             editable: true,
         },
         {
-            field: 'updated_at',
-            headerName: 'Last Updated',
+            field: 'last_name',
+            headerName: 'Last Name',
             width: 300,
             editable: true,
         },
@@ -28,26 +31,11 @@ export const Welcome: NextPage = () => {
 
     return (
         <div>
-            <AppBar position="static" sx={{ bgcolor: "pink" }}>
-                <section aria-label={"toolbar-section"}
-                         style={{display: "flex", flexDirection: "row", justifyContent: "right"}}>
-                    <Toolbar>
-                        <SignUpForm/>
-                    </Toolbar>
-                </section>
-            </AppBar>
-            <section aria-label={"participants-section"}
-                     style={{
-                         padding: "40px 30px",
-                         display: "flex",
-                         flexDirection: "column",
-                         justifyContent: "space-around"
-                     }}>
                 <Box sx={{textAlign:'left', height: 400, width: '100%'}}>
-                    <Typography variant={'h6'}> Users </Typography>
+                    <Typography variant={'h6'}> Participants </Typography>
                    <div style={{ height: 250, width: '100%' }}>
                     <DataGrid
-                        rows={users}
+                        rows={participants}
                         columns={columns}
                         initialState={{
                             pagination: {
@@ -62,7 +50,8 @@ export const Welcome: NextPage = () => {
                     />
                    </div>
                 </Box>
-            </section>
         </div>
     );
 }
+
+export default ParticipantsList;
