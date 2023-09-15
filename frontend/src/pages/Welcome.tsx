@@ -4,10 +4,11 @@ import {AppBar, Toolbar } from "@mui/material";
 import useUsers from "../hooks/useUsers";
 import type {NextPage} from 'next';
 import SignUpForm from "../components/signUpForm";
+import ParticipantsList from "../components/ParticipantsList";
 import {Typography} from "@material-ui/core";
 
 export const Welcome: NextPage = () => {
-    const apiData = useUsers();
+    const { users, isLoading } = useUsers();
 
     const columns = [
         { field: 'id', headerName: 'ID', width: 90 },
@@ -43,10 +44,10 @@ export const Welcome: NextPage = () => {
                          justifyContent: "space-around"
                      }}>
                 <Box sx={{textAlign:'left', height: 400, width: '100%'}}>
-                    <Typography variant={'h6'}> Participants </Typography>
+                    <Typography variant={'h6'}> Users </Typography>
                    <div style={{ height: 250, width: '100%' }}>
                     <DataGrid
-                        rows={apiData}
+                        rows={users}
                         columns={columns}
                         initialState={{
                             pagination: {
@@ -61,6 +62,7 @@ export const Welcome: NextPage = () => {
                     />
                    </div>
                 </Box>
+                <ParticipantsList/>
             </section>
         </div>
     );

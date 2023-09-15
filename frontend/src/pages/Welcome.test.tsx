@@ -1,29 +1,30 @@
 import { render, screen } from "@testing-library/react";
 import { Welcome } from "./Welcome";
-import useParticipants from "../hooks/useParticipants";
+import useUsers from "../hooks/useUsers";
 
-jest.mock("../hooks/useParticipants");
+jest.mock("../hooks/useUsers");
 
-const mockUseParticipants = useParticipants as jest.MockedFunction<typeof useParticipants>
+const mockUseUsers = useUsers as jest.MockedFunction<typeof useUsers>
 
 describe('<Welcome>', () => {
     it('should render a table with the participants available', async () => {
 
-        mockUseParticipants.mockReturnValue([
+        mockUseUsers.mockReturnValue({
+          users: [
             {
                 id: 1,
-                first_name: "liz",
-                last_name: "test1"
+                email: "liz.johnson@example.com",
             },
             {
                 id: 2,
-                first_name: "test2",
-                last_name: "johnson"
+                email: "other@example.com",
             }
-        ])
+          ],
+          isLoading: false
+        })
 
         render(<Welcome/>)
 
-        expect(await screen.findByText("liz")).toBeVisible()
+        expect(await screen.findByText("liz.johnson@example.com")).toBeVisible()
     })
 })

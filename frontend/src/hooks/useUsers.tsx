@@ -7,21 +7,24 @@ interface User {
     updated_at: string
 }
 
-function useUsers(): User[] {
+function useUsers(): { users: User[], isLoading: boolean } {
     const [apiData, setApiData] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
     const httpClient = useHttpClient();
 
     useEffect(() => {
-      console.log(`httpClient BASE URL: ${httpClient.getUri()}`);
+      setIsLoading(true)
       httpClient.get('/users').then(response => {
         setApiData(response.data)
+        setIsLoading(false)
+        return { users: apiData, isLoading: isLoading }
       })
       .catch(error => {
         console.log(error)
       })
     }, []);
 
-    return apiData ?? []
+    return { users: apiData, isLoading: isLoading }
 }
 
 export default useUsers;
