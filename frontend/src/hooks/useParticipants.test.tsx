@@ -3,6 +3,7 @@ import {AxiosInstance} from "axios";
 import useParticipants from "./useParticipants";
 import React from "react";
 import {useHttpClient} from "./useHttpClient";
+import { renderHook } from '@testing-library/react'
 
 jest.mock("./useHttpClient")
 
@@ -66,4 +67,17 @@ describe('useParticipants', () => {
       expect(screen.getByText(/1/)).not.toBeNull()
     })
   });
+  it("automatically fetches the given URL when called", async () => {
+      const { result } = renderHook(() => useParticipants())
+
+      await waitFor(() => {
+        expect(result.current.participants).toEqual([{
+          "id":1,
+          "first_name":"clayton",
+          "last_name":"johnson",
+          "birthdate":"2016-04-16"
+        }])
+        expect(mockHttpClient.get).toHaveBeenCalledWith('/participants')
+      })
+  })
 });
