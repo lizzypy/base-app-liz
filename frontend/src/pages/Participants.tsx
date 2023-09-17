@@ -1,6 +1,6 @@
 import ParticipantsList from "../components/ParticipantsList";
 import {AppBar, Toolbar } from "@mui/material";
-import SignUpForm from "../components/signUpForm";
+import Navbar from "../components/Navbar";
 import type {NextPage} from 'next';
 
 export const Participants: NextPage = () => {
@@ -10,7 +10,7 @@ export const Participants: NextPage = () => {
                 <section aria-label={"toolbar-section"}
                          style={{display: "flex", flexDirection: "row", justifyContent: "right"}}>
                     <Toolbar>
-                        <SignUpForm/>
+                        <Navbar/>
                     </Toolbar>
                 </section>
             </AppBar>

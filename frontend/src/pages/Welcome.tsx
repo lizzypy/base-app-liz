@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import {AppBar, Toolbar } from "@mui/material";
 import useUsers from "../hooks/useUsers";
 import type {NextPage} from 'next';
-import SignUpForm from "../components/signUpForm";
+import Navbar from "../components/Navbar";
 import ParticipantsList from "../components/ParticipantsList";
 import {Typography} from "@material-ui/core";
 
@@ -32,7 +32,7 @@ export const Welcome: NextPage = () => {
                 <section aria-label={"toolbar-section"}
                          style={{display: "flex", flexDirection: "row", justifyContent: "right"}}>
                     <Toolbar>
-                        <SignUpForm/>
+                        <Navbar/>
                     </Toolbar>
                 </section>
             </AppBar>

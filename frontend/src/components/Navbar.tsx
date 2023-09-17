@@ -17,7 +17,7 @@ const style = {
     pb: 3,
 };
 
-function SignUpForm() {
+const Navbar = () => {
     const [open, setOpen] = useState<boolean>(false)
     const [signInOpen, setSignInOpen] = useState<boolean>(false)
     const [email, setEmail] = useState("");
@@ -106,4 +106,4 @@ function SignUpForm() {
     );
 }
 
-export default SignUpForm;
+export default Navbar;
