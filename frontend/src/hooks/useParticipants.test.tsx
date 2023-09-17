@@ -77,6 +77,7 @@ describe('useParticipants', () => {
           "last_name":"johnson",
           "birthdate":"2016-04-16"
         }])
+        console.log(result.current)
         expect(mockHttpClient.get).toHaveBeenCalledWith('/participants')
       })
   })

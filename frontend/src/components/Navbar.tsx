@@ -1,7 +1,8 @@
 import React, {useState} from "react";
-import {Button, Container, Typography} from '@material-ui/core'
+import {Button, Container, Typography, MenuItem} from '@material-ui/core'
 import axios from 'axios';
 import {Box, Input, Modal} from "@mui/material";
+import Link from "next/link";
 
 const style = {
     position: 'absolute' as 'absolute',
@@ -17,7 +18,7 @@ const style = {
     pb: 3,
 };
 
-function SignUpForm() {
+const Navbar = () => {
     const [open, setOpen] = useState<boolean>(false)
     const [signInOpen, setSignInOpen] = useState<boolean>(false)
     const [email, setEmail] = useState("");
@@ -70,9 +71,62 @@ function SignUpForm() {
 
     return (
         <>
-            <Button onClick={handleOpen}>Sign Up</Button>
-            <Button onClick={handleSignInOpen}>Sign In</Button>
+            <section aria-label={"toolbar-section"}
+                         style={{display: "flex", flexDirection: "row", justifyContent: "left"}}>
+              <MenuItem>
+                 <Link
+                    style={{
+                        textDecoration: 'none',
+                        color: '#000'
+                    }}
+                    href="/"
+                 >
+                   HOME
+                 </Link>
+              </MenuItem>
+              <MenuItem>
+                 <Link
+                    style={{
+                        textDecoration: 'none',
+                        color: '#000'
+                    }}
+                    href="/users"
+                 >
+                   USERS
+                 </Link>
+              </MenuItem>
+              <MenuItem>
+                 <Link
+                    style={{
+                        textDecoration: 'none',
+                        color: '#000'
+                    }}
+                    href="/participants"
+                 >
+                   PARTICIPANTS
+                 </Link>
+              </MenuItem>
+            </section>
+            <section aria-label={"toolbar-section"}
+                         style={{display: "flex", flexDirection: "row", justifyContent: "right"}}>
 
+             <MenuItem>
+                 <Link
+                  style={{
+                          textDecoration: 'none',
+                          color: '#000'
+                      }}
+                  href="/signup">SIGN UP
+                </Link>
+              </MenuItem>
+              <Button
+                style={{
+                        textDecoration: 'none',
+                        color: '#000'
+                    }}
+                onClick={handleSignInOpen}>Sign In
+              </Button>
+            </section>
             <Modal
                 open={open}
                 onClose={handleClose}
@@ -106,4 +160,4 @@ function SignUpForm() {
     );
 }
 
-export default SignUpForm;
+export default Navbar;
