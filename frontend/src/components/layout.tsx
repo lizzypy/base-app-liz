@@ -5,12 +5,9 @@ export default function Layout({ children }) {
   return (
     <>
       <AppBar position="static" sx={{ bgcolor: "pink" }}>
-                <section aria-label={"toolbar-section"}
-                         style={{display: "flex", flexDirection: "row", justifyContent: "right"}}>
-                    <Toolbar>
-                      <Navbar/>
-                    </Toolbar>
-                </section>
+          <Toolbar>
+            <Navbar/>
+          </Toolbar>
       </AppBar>
       <main>{children}</main>
     </>
