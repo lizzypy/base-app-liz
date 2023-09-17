@@ -3,7 +3,6 @@ import Box from '@mui/material/Box';
 import {AppBar, Toolbar } from "@mui/material";
 import useParticipants from "../hooks/useParticipants";
 import type {NextPage} from 'next';
-import SignUpForm from "../components/signUpForm";
 import {Typography} from "@material-ui/core";
 
 const ParticipantsList = () => {
