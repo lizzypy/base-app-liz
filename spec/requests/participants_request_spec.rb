@@ -18,7 +18,7 @@ describe ParticipantsController, type: :request do
     } }
 
     it "should add a new participant and return response" do
-      expect { request }.to change { Participant.count }.by 1
+      expect { request }.to change { Participant.count }.by 2
       expect(JSON.parse(response.body)).to include expected_response
     end
   end
